@@ -31,7 +31,7 @@ int main()
     ios::sync_with_stdio(0);
     int n, q, temp, u, k;
     cin >> n >> q;
-    est.resize(n + 1);
+    est.resize(n + 5);
     vis.resize(n + 1, false);
     num.resize(n + 1);
 
