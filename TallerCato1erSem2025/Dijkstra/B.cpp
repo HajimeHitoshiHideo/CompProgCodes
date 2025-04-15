@@ -6,7 +6,7 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef pair<ll, int> pli;
 
-ll INF = LLONG_MAX;
+ll INF = 3e14 + 3e3;
 
 vector<vector<pii>> g;
 vector<bool> vis;
@@ -36,13 +36,15 @@ void djk()
 
 int main()
 {
+    cin.tie(0);
+    ios::sync_with_stdio(0);
     int n, m, k, u, v, x, s, y, cnt = 0;
     cin >> n >> m >> k;
 
     g.resize(n);
     vis.resize(n, false);
     d.resize(n, INF);
-    d[0] == 0;
+    d[0] = 0;
 
     for(int i = 0; i<m; i++)
     {
@@ -58,7 +60,8 @@ int main()
     {
         cin >> s >> y;
         s--;
-        if(d[s] < y)
+
+        if(d[s] <= y)
         {
             cnt++;
         }
