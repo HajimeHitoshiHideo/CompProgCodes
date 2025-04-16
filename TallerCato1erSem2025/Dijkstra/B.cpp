@@ -11,6 +11,7 @@ ll INF = 3e14 + 3e3;
 vector<vector<pii>> g;
 vector<bool> vis;
 vector<ll> d;
+vector<ll> minim;
 
 void djk()
 {
@@ -45,6 +46,8 @@ int main()
     vis.resize(n, false);
     d.resize(n, INF);
     d[0] = 0;
+    minim.resize(n, INF);
+
 
     for(int i = 0; i<m; i++)
     {
@@ -61,9 +64,24 @@ int main()
         cin >> s >> y;
         s--;
 
-        if(d[s] <= y)
+        if(y >= d[s])
         {
             cnt++;
+        }
+        else
+        {
+            if(y < minim[s])
+            {
+                if(minim[s] != INF)
+                {
+                    cnt++;
+                }
+                minim[s] = y;
+            }
+            else
+            {
+                cnt++;
+            }
         }
     }
 
