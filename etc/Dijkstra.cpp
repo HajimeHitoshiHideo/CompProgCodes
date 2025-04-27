@@ -16,16 +16,16 @@ void djk(int in)
     q.push({0, in});
     while(!q.empty())
     {
-        int v = q.top().second;
+        int a = q.top().second;
         q.pop();
-        if(vis[v]) continue;
-        vis[v] = true;
-        for(auto x : g[v])
+        if(vis[a]) continue;
+        vis[a] = true;
+        for(auto v : g[a])
         {
-            int b = x.first, w = x.second;
-            if(d[v] + w < d[b])
+            int b = v.first, w = v.second;
+            if(d[a] + w < d[b])
             {
-                d[b] = d[v] + w;
+                d[b] = d[a] + w;
                 q.push({-d[b], b});
             }
         }
@@ -34,7 +34,7 @@ void djk(int in)
 
 int main()
 {
-    int n, e, v, q, t, temp1, temp2, temp3;
+    int n, e, v, q, t, u, v, w;
 
     cin >> n >> e >> v >> q;
 
@@ -45,9 +45,9 @@ int main()
 
     for(int i = 0; i<e; i++)
     {
-        cin >> temp1 >> temp2 >> temp3;
-        g[temp1].push_back({temp2, temp3});
-        g[temp2].push_back({temp1, temp3});
+        cin >> u >> v >> w;
+        g[u].push_back({v, w});
+        g[v].push_back({u, w});
     }
 
     djk(v);
