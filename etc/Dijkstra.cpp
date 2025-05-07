@@ -34,7 +34,7 @@ void djk(int in)
 
 int main()
 {
-    int n, e, v, q, t, u, v, w;
+    int n, e, q, t, u, v, w;
 
     cin >> n >> e >> v >> q;
 
